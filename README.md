@@ -4,7 +4,7 @@ Upload the "Brand_model.zip" and "Emotion_model.zip" files to the same directory
 Make sure you have python version > 3.6
 -----------------------------
 STEP 2 - 
-Then run the following commmands
+Then run the following commmands ---
 unzip Brand_model.zip || unzip Emotion_model.zip || pip install -r requirements.txt || python app.py
 --------------------------
 STEP 3 - 
