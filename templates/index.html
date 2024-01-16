@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Emotion and Entity Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+        }
+
+        button {
+            padding: 8px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        .error {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tweet Emotion and Brand Predictor</h1>
+
+    <form action="/predict" method="post">
+        <label for="tweet_text">Enter Tweet:</label>
+        <textarea id="tweet_text" name="tweet_text" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if emotion_prediction or brand_prediction %}
+    <h2>Prediction Results</h2>
+    {% if emotion_prediction %}
+    <p>Emotion Prediction: {{ emotion_prediction }}</p>
+    {% endif %}
+    {% if brand_prediction %}
+    <p>Brand Prediction: {{ brand_prediction }}</p>
+    {% endif %}
+    {% if tweet_text %}
+    <p>Input Text: {{ tweet_text }}</p>
+    {% endif %}
+    {% endif %}
+    {% if error %}
+    <h2 class="error">Error</h2>
+    <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
